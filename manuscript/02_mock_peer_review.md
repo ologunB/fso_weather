@@ -21,7 +21,7 @@ Major revision. The analysis and writing are at journal level. The experimental 
 | Discussion | 7 | Good engineering implications and design rules. Comparison with prior work is concise. |
 | Writing quality | 8 | Clear, structured, no filler. |
 | References | 7 | All pre-2022 and verified. A few full author lists still need a publisher check. |
-| Publication readiness | 4 | Blocked by the author-data placeholders and the single-shot data. |
+| Publication readiness | 4 | Complete as a draft. Held back mainly by single-shot data without a dry reference. |
 
 ## Major comments
 

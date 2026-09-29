@@ -150,7 +150,7 @@ def avg_ber_pointing(snr_db, pdf, gains, weights):
 # Link budget
 # --------------------------------------------------------------------------
 LINK = dict(Pt_dBm=13.0, theta=2e-3, DT=0.025, DR=0.08, Lopt_dB=3.0, S_dBm=-35.0)
-TESTBED = dict(Pt_dBm=7.0, theta=1e-3, DT=0.003, DR=0.06, Lopt_dB=1.0, lam=650.0)
+TESTBED = dict(Pt_dBm=7.0, theta=1e-3, DT=0.003, DR=0.03, Lopt_dB=1.0, lam=650.0)
 
 def geo_loss_db(L, theta, DT, DR):
     spot = DT + theta * L
@@ -215,6 +215,12 @@ def main():
         emu.append({"ell_m": ell, "equiv_dBkm": spec, "W_Q2_gm3": W_narrow, "W_Q1_gm3": W_wide})
     res["emulator"] = emu
     res["lwc_100mmh"] = lwc_mp(100.0)
+    # Nigerian design rain rates exceeded 0.01% of an average year
+    res["nigeria_rain"] = [{"R": R, "gamma_dBkm": beta_rain_carbonneau(R),
+                            "range_m": max_range(beta_rain_carbonneau(R)),
+                            "margin_500m": margin_db(500, beta_rain_carbonneau(R)),
+                            "margin_1km": margin_db(1000, beta_rain_carbonneau(R))}
+                           for R in (77.0, 110.0, 125.0, 141.0)]
 
     # ---------------- Turbulence ----------------
     turb = []
@@ -363,7 +369,7 @@ def main():
     ax.text(69, 21.5, "Receiver", fontsize=8, color=INK, weight="bold")
     fig.savefig(os.path.join(FIG, "fig1_system.png")); plt.close(fig)
 
-    print(json.dumps({k: res[k] for k in ("measured_rel_loss_db", "emulator", "lwc_100mmh",
+    print(json.dumps({k: res[k] for k in ("nigeria_rain", "measured_rel_loss_db", "emulator", "lwc_100mmh",
                      "snr_for_1e-6", "snr_for_1e-3", "testbed_rytov_strong_10m", "pointing_weq_m",
                      "testbed_spot_10m_mm", "testbed_spot_20m_mm", "testbed_fog_loss_10m_dense_db",
                      "testbed_rain_loss_10m_100mmh_db", "clear_margin_1550_1km", "geo_loss_1km")},

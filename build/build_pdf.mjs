@@ -97,7 +97,7 @@ h1#references ~ p { font-size: 8.8pt; text-align: left; padding-left: 22pt; text
 <h1 class="title">${title}</h1>
 <div class="authors">${(fm.authors || "").replace(/\[(AUTHOR[^\]]*)\]/g, '<span class="todo">[$1]</span>')}</div>
 <div class="affil">${(fm.affiliation || "").replace(/\[(AUTHOR[^\]]*)\]/g, '<span class="todo">[$1]</span>')}</div>
-<div class="note">Manuscript draft. Literature restricted to sources published on or before 31 December 2021. Highlighted items need author input.</div>
+<div class="note">Literature restricted to sources published on or before 31 December 2021.</div>
 ${html}
 </body></html>`;
 fs.writeFileSync(outHtml, page);

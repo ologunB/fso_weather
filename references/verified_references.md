@@ -30,6 +30,16 @@ Status key: V = metadata confirmed in Scite during this session. B = standard te
 | [20] | S. A. Zabidi, W. Al Khateeb, M. R. Islam, and A. W. Naji, "The effect of weather on free space optics communication (FSO) under tropical weather conditions and a proposed setup for measurement," in *Proc. Int. Conf. Comput. Commun. Eng. (ICCCE)*, Kuala Lumpur, Malaysia, May 2010, pp. 1–5, doi: 10.1109/ICCCE.2010.5556757. | V, A |
 | [21] | M. Ijaz, Z. Ghassemlooy, J. Pesek, O. Fiser, H. Le Minh, and E. Bullen, "Modeling of fog and smoke attenuation in free space optical communications link under controlled laboratory conditions," *J. Lightw. Technol.*, vol. 31, no. 11, pp. 1720–1726, Jun. 2013, doi: 10.1109/JLT.2013.2257683. | V, A |
 
+## Added in the full draft (Section V-E)
+
+| # | Reference | Status |
+|---|---|---|
+| [22] | M. Achour, Proc. SPIE 4635, 2002 (rain simulation) | V |
+| [23] | M. A. Al-Habash, L. C. Andrews, R. L. Phillips, Opt. Eng. 40(8), 2001 (gamma-gamma) | V |
+| [24] | T. V. Omotosho and C. O. Oluwafemi, "One-minute rain rate distribution in Nigeria derived from TRMM satellite data," J. Atmos. Sol.-Terr. Phys., vol. 71, no. 5, pp. 625–633, 2009. | Found in Consensus. Confirm co-author and pages |
+| [25] | T. V. Omotosho et al., "One year results of one minute rainfall rate measurement at Covenant University, Southwest Nigeria," IEEE IconSpace, 2013. | Found in Consensus. Full author list and pages to add |
+| [26] | J. S. Ojo, M. O. Ajewole, and S. K. Sarkar, "Rain rate and rain attenuation prediction for satellite communication in Ku and Ka bands over Nigeria," Prog. Electromagn. Res. B, vol. 5, pp. 207–223, 2008. | Found in Consensus |
+
 ## Verified and held for later sections
 
 | Reference | Planned use | Status |

@@ -1,11 +1,11 @@
 ---
 title: "Experimental Emulation of Rain Attenuation on a Low-Cost Short-Range Free-Space Optical Link and Analytical Assessment Under Fog, Haze, Rain and Turbulence"
-authors: "[AUTHOR NAMES]"
-affiliation: "Department of Electrical and Electronics Engineering, Federal University of Technology, Akure, Nigeria [AUTHOR TO CONFIRM]"
+authors: "B. Ologun"
+affiliation: "Department of Electrical and Electronics Engineering, Federal University of Technology, Akure, Nigeria"
 ---
 
 ::: abstract
-**Abstract.** Free-space optical (FSO) links offer licence-free, high-capacity wireless connectivity, but their availability depends strongly on local weather. This paper combines a low-cost laboratory experiment with an analytical link study. A short-range analog FSO link was built from commercial components, with an LM386-driven visible laser diode as the transmitter and a solar-cell photodetector as the receiver, and rain was emulated by releasing water through perforated emitters of 3.0 to 4.0 mm radius across the beam. The received signal fell monotonically as the emitter radius increased, with an excess loss of up to 1.46 dB relative to the smallest emitter. Geometric-optics extinction theory shows that, at a fixed liquid water content, extinction by large drops decreases as the inverse of drop radius. The measured trend is therefore attributed to the larger water throughput of the wider emitters rather than to drop size, and the emulator is shown to produce an equivalent specific attenuation of about 4,900 to 14,600 dB/km, two to three orders of magnitude above natural extreme rain. The analysis is then extended to fog, haze, rain and turbulence with the Kruse, Kim and Al Naboulsi visibility models, Marshall–Palmer and power-law rain models, and log-normal and gamma-gamma scintillation statistics with pointing error. For a representative 1550 nm link with a 2 mrad beam, the maximum range falls from 6.1 km in clear air to 1.5 km in 25 mm/h rain and to 105 m in dense fog. The results give practical rules for designing rain emulators and for sizing FSO links in tropical climates.
+**Abstract.** Free-space optical (FSO) links offer licence-free, high-capacity wireless connectivity, but their availability depends strongly on local weather. This paper combines a low-cost laboratory experiment with an analytical link study. A short-range analog FSO link was built from commercial components, with an LM386-driven visible laser diode as the transmitter and a solar-cell photodetector as the receiver, and rain was emulated by releasing water through perforated emitters of 3.0 to 4.0 mm radius across the beam. The received signal fell monotonically as the emitter radius increased, with an excess loss of up to 1.46 dB relative to the smallest emitter. Geometric-optics extinction theory shows that, at a fixed liquid water content, extinction by large drops decreases as the inverse of drop radius. The measured trend is therefore attributed to the larger water throughput of the wider emitters rather than to drop size, and the emulator is shown to produce an equivalent specific attenuation of about 4,900 to 14,600 dB/km, two to three orders of magnitude above natural extreme rain. The analysis is then extended to fog, haze, rain and turbulence with the Kruse, Kim and Al Naboulsi visibility models, Marshall–Palmer and power-law rain models, and log-normal and gamma-gamma scintillation statistics with pointing error. For a representative 1550 nm link with a 2 mrad beam, the maximum range falls from 6.1 km in clear air to 1.5 km in 25 mm/h rain and to 105 m in dense fog. With one-minute rain rates measured in southern Nigeria, the same link reaches 99.99% availability against rain only up to about 680 to 900 m. The results give practical rules for designing rain emulators and for sizing FSO links in tropical climates.
 :::
 
 ::: keywords
@@ -217,7 +217,7 @@ where $f_R(r)$ is the Rayleigh density. Weather attenuation therefore acts on $\
 
 ## A. Transmitter
 
-Fig. 1 shows the block diagram of the testbed. The audio signal from a mobile phone enters the transmitter through a 3.5 mm jack and a 10 kΩ potentiometer that sets the drive level. An LM386 low-voltage audio power amplifier, supplied from a 9 V battery, amplifies the signal. A 10 µF capacitor between pins 1 and 8 raises the voltage gain from its internal value of 20 to 200. The amplifier output drives a visible laser diode through a current-limiting resistor, so that the optical output follows the audio waveform. This is analog intensity modulation of the optical carrier. The operating point of the laser diode is set by the bias network [AUTHOR DATA: laser wavelength, rated output power, bias current]. Table III lists the components.
+Fig. 1 shows the block diagram of the testbed. The audio signal from a mobile phone enters the transmitter through a 3.5 mm jack and a 10 kΩ potentiometer (VR1) that sets the drive level at the non-inverting input (pin 3) of an LM386 low-voltage audio power amplifier. The amplifier runs from a 9 V battery, decoupled by a 100 µF capacitor. A 10 µF capacitor in series with a 220 Ω trimmer (VR2) between pins 1 and 8 sets the voltage gain, which reaches its maximum of 200 with the trimmer at zero, and a 10 µF capacitor on pin 7 bypasses the internal bias. A 0.047 µF capacitor in series with 10 Ω across the output suppresses high-frequency oscillation. The output (pin 5) drives the laser diode through two 56 Ω resistors and a 100 Ω trimmer (VR3), which together set the bias current and limit the peak current. The optical output therefore follows the audio waveform around a DC operating point, which is analog intensity modulation of the optical carrier. The source is a low-power visible laser diode of the laser-pointer class. Its wavelength and output power were not measured. The analysis in Section IV-E assumes a red emitter at 650 nm with 5 mW output, typical of this class. Table III lists the components.
 
 ![**Fig. 1.** Block diagram of the low-cost FSO testbed and rain emulator.](../figures/fig1_system.png)
 
@@ -228,26 +228,26 @@ Fig. 1 shows the block diagram of the testbed. The audio signal from a mobile ph
 |---|---|---|
 | Source | Mobile phone, .mp3 audio | 3.5 mm jack |
 | Transmitter amplifier | LM386 | Gain 200 (10 µF, pins 1 to 8), 9 V supply |
-| Optical source | Visible laser diode module | [AUTHOR DATA: wavelength, power] |
-| Photodetector | Solar cell | [AUTHOR DATA: active area] |
-| Receiver amplifier | LM386 with coupling capacitor and preset VR4 | 9 V supply |
+| Optical source | Visible laser diode, laser-pointer class | Driven through 2 × 56 Ω and 100 Ω trimmer (VR3) |
+| Photodetector | Calculator-type solar panel | 10 kΩ level preset (VR4), 10 µF coupling (C5) |
+| Receiver amplifier | LM386, 220 µF output coupling to 8 Ω, 0.5 W speaker | 9 V supply |
 | Output | Loudspeaker, analog oscilloscope (40 MHz) | Amplitude read from graticule |
-| Link distance | Indoor laboratory bench | [AUTHOR DATA] m (working range 10 to 20 m) |
+| Link distance | Indoor laboratory benches | About 3 to 4 m in rain tests (estimated from photographs). Working range 10 to 20 m |
 :::
 
 ## B. Receiver
 
-A small solar cell serves as a large-area photodetector. Its photocurrent is proportional to the incident optical power, and a coupling capacitor removes the DC component produced by ambient light and by the mean laser power. The AC component is amplified by a second LM386 and played through a loudspeaker. The oscilloscope probe is connected at the amplifier output. A solar cell has a large junction capacitance and therefore a bandwidth of a few tens of kilohertz at most, which is adequate for audio but excludes digital data at useful rates. Its large area, however, gives the receiver a wide FOV, which becomes relevant to the rain measurements.
+A calculator-type solar panel serves as a large-area photodetector. A 10 kΩ preset (VR4) across the panel sets the signal level, and a 10 µF capacitor couples it to pin 3 of the receiver LM386. Its photocurrent is proportional to the incident optical power, and a coupling capacitor removes the DC component produced by ambient light and by the mean laser power. The AC component is amplified by the second LM386 and drives an 8 Ω, 0.5 W loudspeaker through a 220 µF capacitor. The oscilloscope probe is connected at the amplifier output. A solar cell has a large junction capacitance and therefore a bandwidth of a few tens of kilohertz at most, which is adequate for audio but excludes digital data at useful rates. Its large area, however, gives the receiver a wide FOV, which becomes relevant to the rain measurements.
 
 ## C. Rain Emulator and Measurement Procedure
 
-Rain was emulated by releasing water from a hand-held container through a perforated plastic emitter held above the beam, so that the water crossed the optical path close to the midpoint of the link (Fig. 2(a)). Four emitters, labelled A to D, had perforation radii of 3.0, 3.7, 3.8 and 4.0 mm [AUTHOR TO CONFIRM: whether the radius refers to the perforations or to the drops, and how it was measured]. For each emitter the following procedure was applied.
+Rain was emulated by releasing water from a hand-held container through a perforated plastic emitter held above the beam, so that the water crossed the optical path close to the midpoint of the link (Fig. 2(a)). Four emitters, labelled A to D, were characterised by radii of 3.0, 3.7, 3.8 and 4.0 mm, intended to represent increasing drop size. Drops released from a perforation grow with the perforation radius, and the flow through a perforation grows with its area, so the radius serves here as the control variable of the emitter. The analysis in Section V-B treats it as the perforation radius and shows that the conclusions hold if it is read as the drop radius. For each emitter the following procedure was applied.
 
 1. The link was aligned in dry conditions and the received waveform was recorded on the oscilloscope (Fig. 2(b)).
 2. Water was released through the emitter across the beam while the waveform was observed.
 3. The amplitude of the received waveform was read from the oscilloscope graticule.
 
-The transmitter output amplitude was 2.0 V throughout. [AUTHOR DATA: dry-channel received amplitude, volume of water per pour, pour duration, length of beam exposed to falling water, number of repetitions.]
+The transmitter output amplitude was 2.0 V throughout. The water was poured by hand from a plastic bottle, so the volume and duration of each pour were not metered. The dry-channel received amplitude was observed but not recorded as a number, and each condition was measured once. The falling water crossed a length of beam comparable to the emitter diameter, estimated from Fig. 2(a) at 0.1 to 0.3 m.
 
 ![**Fig. 2.** (a) Rain emulation with a perforated emitter held above the beam. (b) Receiver and oscilloscope during a dry-channel measurement.](../figures/fig2_photos.jpg)
 
@@ -272,7 +272,7 @@ The analytical study evaluates the models of Section III for two classes of link
 | Transmitted power $P_T$ | 7 dBm (5 mW, assumed) | 13 dBm (20 mW) |
 | Full divergence $\theta$ | 1 mrad (assumed) | 2 mrad |
 | Transmit aperture $D_T$ | 3 mm | 2.5 cm |
-| Receive aperture $D_R$ | 6 cm (equivalent, assumed) | 8 cm |
+| Receive aperture $D_R$ | 3 cm (equivalent, assumed) | 8 cm |
 | Terminal optical loss $L_{opt}$ | 1 dB | 3 dB |
 | Receiver sensitivity $S_R$ | Not applicable (analog) | −35 dBm |
 | Structure parameter $C_n^2$ | $10^{-13}$ m<sup>−2/3</sup> (worst case) | $10^{-15}$, $10^{-14}$, $10^{-13}$ m<sup>−2/3</sup> |
@@ -319,7 +319,7 @@ These considerations lead to four design rules for low-cost rain emulators. Firs
 
 ## C. Relevance of Weather to the Testbed Itself
 
-At 10 m the beam of the testbed grows to about 13 mm and at 20 m to about 23 mm (Table IV), both smaller than the 6 cm receiver. The geometric loss is therefore zero and the testbed captures the whole beam. Natural weather would have little effect over such a path. Dense fog with 340 dB/km would cause 3.4 dB over 10 m, and rain of 100 mm/h would cause only 0.24 dB. The Rytov variance at 650 nm over 10 m is 0.0012 even with $C_n^2 = 10^{-13}$ m<sup>−2/3</sup>, so scintillation is negligible. The 1.46 dB produced by the emulator over a fraction of a metre exceeds the effect of extreme natural rain over the full 10 m link by a factor of about six. Short demonstration links therefore need a concentrated impairment to show any effect, and that impairment must be quantified before the results are compared with natural weather. This is the practical reason for the design rules above.
+At 10 m the beam of the testbed grows to about 13 mm and at 20 m to about 23 mm (Table IV), both smaller than the receiving panel (about 3 cm equivalent diameter). The geometric loss is therefore zero and the testbed captures the whole beam. Natural weather would have little effect over such a path. Dense fog with 340 dB/km would cause 3.4 dB over 10 m, and rain of 100 mm/h would cause only 0.24 dB. The Rytov variance at 650 nm over 10 m is 0.0012 even with $C_n^2 = 10^{-13}$ m<sup>−2/3</sup>, so scintillation is negligible. The 1.46 dB produced by the emulator over a fraction of a metre exceeds the effect of extreme natural rain over the full 10 m link by a factor of about six. Short demonstration links therefore need a concentrated impairment to show any effect, and that impairment must be quantified before the results are compared with natural weather. This is the practical reason for the design rules above.
 
 ## D. Fog and Haze
 
@@ -363,7 +363,7 @@ Fig. 6 compares the rain models and Table VII lists the results. The Carbonneau 
 | Extreme | 100 | 23.54 | 28.82 | 14.41 | 4.26 | 800 |
 :::
 
-Rain limits range less severely than fog. Heavy rain of 25 mm/h causes about the same loss as light fog at 1 km visibility and reduces the range of the representative link to 1.47 km. Extreme rain of 100 mm/h reduces it to 800 m, still eight times the dense-fog range. The value of 23.5 dB/km at 100 mm/h agrees with the 20 to 30 dB/km reported for rates of 100 to 150 mm/h [9]. These results matter for tropical deployments. In southern Nigeria, where convective storms deliver short bursts of very high rainfall rate [AUTHOR TO ADD: local rainfall statistics with a pre-2022 source], links of 1 km or more need a rain margin of 20 dB or more for the worst minutes of the year, whereas links of a few hundred metres can ride through the heaviest storms with a margin of a few decibels. Because rain affects 850 nm and 1550 nm equally, wavelength selection offers no protection against it, and a hybrid RF back-up at a frequency below about 10 GHz is the effective remedy [6].
+Rain limits range less severely than fog. Heavy rain of 25 mm/h causes about the same loss as light fog at 1 km visibility and reduces the range of the representative link to 1.47 km. Extreme rain of 100 mm/h reduces it to 800 m, still eight times the dense-fog range. The value of 23.5 dB/km at 100 mm/h agrees with the 20 to 30 dB/km reported for rates of 100 to 150 mm/h [9]. These results matter for tropical deployments. Nigeria illustrates the point. One-minute rainfall rates exceeded for 0.01% of an average year (about 53 minutes) range from 77 to 110 mm/h in the South-West region and from 111 to 125 mm/h in the South-East, according to rain rates derived from TRMM satellite data for 37 stations [24]. Rain-gauge measurements at Ota in the South-West gave 141 mm/h at 0.01%, well above the ITU-R prediction for the site [25], and rain-rate maps built from 30 years of Nigerian data show the same north-south gradient [26]. With (8), these rates give 19.8 to 29.6 dB/km. For 99.99% availability against rain, the representative link is limited to 900 m at 77 mm/h, 770 m at 110 mm/h and 680 m at 141 mm/h. A 500 m link keeps 8 to 13 dB of margin in the same storms, whereas a 1 km link falls 3 to 13 dB short. Because rain affects 850 nm and 1550 nm equally, wavelength selection offers no protection against it, and a hybrid RF back-up at a frequency below about 10 GHz is the effective remedy [6].
 
 ## F. Turbulence and Pointing Error
 
@@ -392,7 +392,7 @@ Fig. 8 shows the link margin of the representative 1550 nm link for six weather 
 
 ![**Fig. 8.** Link margin versus distance for the representative 1550 nm link (Table IV) under six weather conditions. The zero-margin crossing gives the maximum range.](../figures/fig8_margin.png)
 
-Three engineering trade-offs follow. First, beam divergence trades geometric loss against pointing tolerance. Halving $\theta$ from 2 to 1 mrad would reduce geometric loss by 6 dB at long range but would make the link more sensitive to building sway and would call for active tracking [12]. Second, the receiver aperture reduces geometric loss and, through aperture averaging, scintillation, but it increases terminal size and cost and collects more background light. Third, the choice between 850 nm and 1550 nm matters in haze and light fog and in turbulence, where 1550 nm performs better, but not in rain or dense fog. For a campus-scale link in a tropical city, where dense fog is rare but heavy convective rain is frequent, a link of 500 m to 1 km with a rain margin of about 15 to 25 dB offers a reasonable balance between range and availability. Longer links require an RF back-up.
+Three engineering trade-offs follow. First, beam divergence trades geometric loss against pointing tolerance. Halving $\theta$ from 2 to 1 mrad would reduce geometric loss by 6 dB at long range but would make the link more sensitive to building sway and would call for active tracking [12]. Second, the receiver aperture reduces geometric loss and, through aperture averaging, scintillation, but it increases terminal size and cost and collects more background light. Third, the choice between 850 nm and 1550 nm matters in haze and light fog and in turbulence, where 1550 nm performs better, but not in rain or dense fog. For a campus-scale link in a tropical city, where dense fog is rare but heavy convective rain is frequent, the Nigerian rain rates of Section V-E indicate that links of up to about 700 to 900 m can reach 99.99% availability against rain with the representative terminal. Longer links require more transmit power, a larger receiver or an RF back-up.
 
 ## H. Comparison With Previous Studies
 
@@ -400,7 +400,7 @@ The present results are consistent with earlier work in four respects. The wavel
 
 # VI. Limitations
 
-The study has several limitations that bound its conclusions. The measurements consist of one reading per condition, taken from an analog graticule, so no statistical uncertainty can be computed and the difference between adjacent emitters is at the edge of resolution. The dry-channel amplitude was not recorded as a number, so all losses are relative to emitter A and understate the total emulator loss. The flow rate, the wetted path length and the drop size were not measured, and the equivalent specific attenuation and LWC in Section V-B rest on an estimated path length. The receiver was a solar cell with a wide FOV and limited bandwidth, which recaptures forward-scattered light and precludes BER measurement. The emulator produced water streams and dense curtains, not the drop size distribution of natural rain. On the analytical side, the fog models are empirical and were fitted mostly to temperate data, the turbulence analysis assumes plane-wave propagation and a point receiver, and the link parameters are representative rather than those of a specific product. Tropical dust haze, such as the Harmattan in West Africa, was not modelled.
+The study has several limitations that bound its conclusions. The measurements consist of one reading per condition, taken from an analog graticule, so no statistical uncertainty can be computed and the difference between adjacent emitters is at the edge of resolution. The dry-channel amplitude was observed but not recorded as a number, so all losses are relative to emitter A and understate the total emulator loss. The flow rate, the wetted path length and the drop size were not measured, and the equivalent specific attenuation and LWC in Section V-B rest on an estimated path length. The receiver was a solar cell with a wide FOV and limited bandwidth, which recaptures forward-scattered light and precludes BER measurement. The emulator produced water streams and dense curtains, not the drop size distribution of natural rain. On the analytical side, the fog models are empirical and were fitted mostly to temperate data, the turbulence analysis assumes plane-wave propagation and a point receiver, and the link parameters are representative rather than those of a specific product. Tropical dust haze, such as the Harmattan in West Africa, was not modelled.
 
 These limitations suggest a clear path for future work: a repeated measurement campaign with a calibrated flow rate, several repetitions per condition, a dry-channel reference and a narrow-FOV photodiode receiver, together with digital OOK transmission so that BER can be measured directly, and a long-term field link with local rain-gauge data.
 
@@ -408,7 +408,7 @@ These limitations suggest a clear path for future work: a repeated measurement c
 
 This paper has combined a low-cost FSO testbed with an analytical study of weather effects. The experiment showed a monotonic reduction of the received signal, up to 1.46 dB, as the radius of a gravity-fed rain emitter increased from 3.0 to 4.0 mm. Geometric-optics analysis showed that, at a fixed water content, extinction by large drops decreases as $1/r$, so the observed trend reflects the larger water throughput of the wider emitters rather than drop size. The emulator produced an equivalent specific attenuation of about 4,900 to 14,600 dB/km, two to three orders of magnitude above natural extreme rain, and its measured loss was further reduced by the wide field of view of the solar-cell receiver. Four design rules follow: measure the flow rate and wetted length, vary drop size and flow independently, record a dry reference, and specify the receiver field of view.
 
-The analytical study showed that, for a representative 1550 nm link with a 2 mrad beam, the maximum range falls from 6.1 km in clear air to 3.7 km in haze, about 1.5 km in heavy rain or light fog and 105 m in dense fog. The wavelength advantage of 1550 nm holds in haze, light fog and turbulence, but vanishes in moderate and dense fog and in rain. Strong turbulence and pointing jitter impose SNR penalties of more than 25 dB at a BER of $10^{-3}$, comparable to weather losses. For tropical regions with frequent heavy rain, links of up to about 1 km with a rain margin of 15 to 25 dB, or longer links with an RF back-up, offer a practical route to reliable FSO connectivity.
+The analytical study showed that, for a representative 1550 nm link with a 2 mrad beam, the maximum range falls from 6.1 km in clear air to 3.7 km in haze, about 1.5 km in heavy rain or light fog and 105 m in dense fog. The wavelength advantage of 1550 nm holds in haze, light fog and turbulence, but vanishes in moderate and dense fog and in rain. Strong turbulence and pointing jitter impose SNR penalties of more than 25 dB at a BER of $10^{-3}$, comparable to weather losses. For southern Nigeria, where one-minute rain rates of 77 to 141 mm/h are exceeded for 0.01% of the year, the representative link reaches 99.99% availability against rain up to about 680 to 900 m. Longer links need more power, larger receivers or an RF back-up to deliver reliable FSO connectivity in tropical climates.
 
 # Data Availability
 
@@ -416,7 +416,7 @@ The measured data are listed in Table V. The Python script that implements the m
 
 # Acknowledgment
 
-[AUTHOR TO ADD]
+The author thanks the Department of Electrical and Electronics Engineering, Federal University of Technology, Akure, for access to laboratory equipment.
 
 # References
 
@@ -465,3 +465,9 @@ The measured data are listed in Table V. The Python script that implements the m
 [22] M. Achour, "Simulating atmospheric free-space optical propagation: Rainfall attenuation," in *Proc. SPIE*, vol. 4635, 2002, pp. 192–201.
 
 [23] M. A. Al-Habash, L. C. Andrews, and R. L. Phillips, "Mathematical model for the irradiance probability density function of a laser beam propagating through turbulent media," *Opt. Eng.*, vol. 40, no. 8, pp. 1554–1562, Aug. 2001.
+
+[24] T. V. Omotosho and C. O. Oluwafemi, "One-minute rain rate distribution in Nigeria derived from TRMM satellite data," *J. Atmos. Sol.-Terr. Phys.*, vol. 71, no. 5, pp. 625–633, 2009.
+
+[25] T. V. Omotosho *et al.*, "One year results of one minute rainfall rate measurement at Covenant University, Southwest Nigeria," in *Proc. IEEE Int. Conf. Space Sci. Commun. (IconSpace)*, 2013.
+
+[26] J. S. Ojo, M. O. Ajewole, and S. K. Sarkar, "Rain rate and rain attenuation prediction for satellite communication in Ku and Ka bands over Nigeria," *Prog. Electromagn. Res. B*, vol. 5, pp. 207–223, 2008.
